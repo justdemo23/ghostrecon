@@ -3,9 +3,9 @@ import mysql.connector
 def get_db_connection():
     return mysql.connector.connect(
         host="localhost",
-        user="root",  # ⚠️ Reemplaza con tu usuario de MySQL
-        password="A25bd1e23",  # ⚠️ Reemplaza con tu contraseña de MySQL
-        database="reconocimiento_facial"  # ⚠️ Reemplaza con el nombre de tu BD
+        user="root",
+        password="A25bd1e23",
+        database="reconocimiento_facial"
     )
 
 def get_db_cursor():

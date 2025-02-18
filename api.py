@@ -5,10 +5,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from routes.auth import router as auth_router
 from fastapi.responses import RedirectResponse
 import os
+from routes.reconocimiento import router as reconocimiento_router
 
 app = FastAPI()
 
-# 🔥 Configurar CORS (Si usas frontend separado)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -17,15 +17,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 📌 Servir `public/` en `/public/` (NO en `/` para evitar que bloquee rutas)
 app.mount("/public", StaticFiles(directory="public", html=True), name="public")
 
-# 📌 Redirigir `/` a `home.html` manualmente
 @app.get("/")
 async def serve_home():
     return RedirectResponse(url="/public/home.html")
 
-# 📌 Servir `favicon.ico` sin bloquear rutas
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
     favicon_path = os.path.join(os.getcwd(), "public", "favicon.ico")
@@ -38,8 +35,13 @@ async def serve_dashboard():
     return RedirectResponse(url="/public/dashboard.html")
 
 
-# 📌 Incluir rutas de autenticación
+@app.get("/reconocimiento")
+async def serve_reconocimiento():
+    return FileResponse("public/reconocimiento.html")
+
 app.include_router(auth_router, prefix="/auth", tags=["Auth"])
+
+app.include_router(reconocimiento_router, prefix="/reconocimiento", tags=["Reconocimiento Facial"])
 
 if __name__ == "__main__":
     import uvicorn

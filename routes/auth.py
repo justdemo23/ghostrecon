@@ -5,12 +5,11 @@ import jwt
 import datetime
 from db import get_db_connection
 
-# 📌 Clave secreta para firmar los tokens JWT (¡Cámbiala por algo seguro en producción!)
+
 SECRET_KEY = "TJksAUKpANGW69wuUuCKsaAUmggcCgz2nr"
 
 router = APIRouter()
 
-# 📌 Modelos para validación de datos con Pydantic
 class UsuarioRegistro(BaseModel):
     nombre: str
     email: str
@@ -20,7 +19,6 @@ class UsuarioLogin(BaseModel):
     email: str
     password: str
 
-# 📌 Función para generar un JWT (Expira en 24 horas)
 def generar_token(email):
     payload = {
         "sub": email,  
@@ -34,17 +32,16 @@ def verificar_token(authorization: str = Header(None)):
     if not authorization:
         raise HTTPException(status_code=401, detail="Token no encontrado")
 
-    token = authorization.split("Bearer ")[-1]  # Extrae el token del header
+    token = authorization.split("Bearer ")[-1]
 
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
-        return payload["sub"]  # Retorna el email del usuario autenticado
+        return payload["sub"]
     except jwt.ExpiredSignatureError:
         raise HTTPException(status_code=401, detail="Token expirado")
     except jwt.InvalidTokenError:
         raise HTTPException(status_code=401, detail="Token inválido")
 
-# 📌 Ruta para registrar usuarios
 @router.post("/register", status_code=201)
 async def register(user: UsuarioRegistro):
     conn = get_db_connection()
@@ -63,7 +60,6 @@ async def register(user: UsuarioRegistro):
         cursor.close()
         conn.close()
 
-# 📌 Ruta para login con JWT
 @router.post("/login", status_code=200)
 async def login(user: UsuarioLogin):
     conn = get_db_connection()
@@ -81,7 +77,6 @@ async def login(user: UsuarioLogin):
     else:
         raise HTTPException(status_code=400, detail="Contraseña incorrecta")
 
-# 📌 Ruta protegida con JWT (Solo accede si el token es válido)
 @router.get("/me")
 async def obtener_usuario(email: str = Depends(verificar_token)):
     conn = get_db_connection()

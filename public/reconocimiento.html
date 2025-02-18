@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconocimiento Facial</title>
+    <link rel="stylesheet" href="/public/css/reconocimiento.css">
+</head>
+<body>
+    <header>
+        <h1>Reconocimiento Facial</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+
+        </ul>
+    </nav>
+    <main>
+        <section class="upload-section">
+            <h2>Sube una imagen para reconocer</h2>
+            <input type="file" id="fileInput" accept="image/*">
+            <button id="recognizeBtn">🔍 Reconocer</button>
+        </section>
+
+        <section class="result-section">
+            <h2>Resultado</h2>
+            <p id="resultMessage">Esperando imagen...</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 FaceID Pro. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/public/js/reconocimiento.js"></script>
+</body>
+</html>

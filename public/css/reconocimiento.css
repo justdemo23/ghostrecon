@@ -1,0 +1,84 @@
+/* 🔥 Estilos Generales */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* 🔥 Header */
+header {
+    background: #333;
+    color: white;
+    padding: 15px;
+    font-size: 22px;
+}
+
+/* 🔥 Sección de Subida */
+.upload-section {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    border-radius: 8px;
+}
+
+/* 🔥 Botón de Reconocimiento */
+#recognizeBtn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#recognizeBtn:hover {
+    background-color: #0056b3;
+}
+
+/* 🔥 Sección de Resultado */
+.result-section {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    border-radius: 8px;
+    width: 80%;
+}
+
+#resultMessage {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* 🔥 Nav */
+nav {
+    background: #333;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+

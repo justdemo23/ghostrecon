@@ -28,3 +28,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = '/login';
     }
 });
+
+// clic en el boton de reconocimiento facial
+document.getElementById('reconocimientoBtn').addEventListener('click', () => {
+    window.location.href = '/reconocimiento';
+});
