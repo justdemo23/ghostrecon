@@ -1,0 +1,89 @@
+/* 🔥 Estilos Globales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* 🔥 Header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+#logoutBtn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#logoutBtn:hover {
+    background-color: #cc0000;
+}
+
+/* 🔥 Sección de información del usuario */
+.user-info {
+    margin: 20px 0;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    border-radius: 8px;
+}
+
+/* 🔥 Opciones del Dashboard */
+.options {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    border-radius: 8px;
+}
+
+.options ul {
+    list-style: none;
+    padding: 0;
+}
+
+.options li {
+    margin: 10px 0;
+}
+
+.options a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.options a:hover {
+    color: #007BFF;
+}
+
+/* 🔥 Footer */
+footer {
+    margin-top: 30px;
+    padding: 15px;
+    background: #333;
+    color: white;
+    font-size: 14px;
+}
