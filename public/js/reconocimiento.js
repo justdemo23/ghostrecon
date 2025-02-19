@@ -6,7 +6,6 @@ document.getElementById('recognizeBtn').addEventListener('click', async () => {
         resultMessage.textContent = "❌ Por favor, selecciona una imagen.";
         return;
     }
-
     const formData = new FormData();
     formData.append("imagen", fileInput.files[0]);
 

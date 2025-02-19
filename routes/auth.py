@@ -5,7 +5,6 @@ import jwt
 import datetime
 from db import get_db_connection
 
-
 SECRET_KEY = "TJksAUKpANGW69wuUuCKsaAUmggcCgz2nr"
 
 router = APIRouter()

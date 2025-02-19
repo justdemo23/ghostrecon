@@ -29,7 +29,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-// clic en el boton de reconocimiento facial
-document.getElementById('reconocimientoBtn').addEventListener('click', () => {
-    window.location.href = '/reconocimiento';
+// clic en boton de cerrar sesion en el dashboard.html <button id="logoutBtn">Cerrar Sesión</button>
+document.getElementById('logoutBtn').addEventListener('click', () => {
+    localStorage.removeItem('token');
+    window.location.href = '/public/home.html';
 });
+
+
+
+
