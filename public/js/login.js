@@ -6,7 +6,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     const errorMessage = document.getElementById('errorMessage');
 
     try {
-        const response = await fetch('http://127.0.0.1:3100/auth/login', {  // 🔥 Conexión directa al backend
+        const response = await fetch('http://127.0.0.1:3100/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -17,13 +17,11 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         const data = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.detail || 'Error en el inicio de sesión'); // 🔥 Corrige manejo de errores
+            throw new Error(data.detail || 'Error en el inicio de sesión');
         }
 
-        // Guardar token en localStorage para usarlo en futuras peticiones
         localStorage.setItem('token', data.token);
 
-        // Redirigir al usuario al dashboard
         window.location.href = '/public/dashboard.html';
         
     } catch (error) {

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends, Header
 from pydantic import BaseModel
 import bcrypt
-import jwt
+from jose import jwt
 import datetime
 from db import get_db_connection
 
@@ -26,7 +26,6 @@ def generar_token(email):
     token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
     return token
 
-# 📌 Función para verificar y decodificar el token JWT
 def verificar_token(authorization: str = Header(None)):
     if not authorization:
         raise HTTPException(status_code=401, detail="Token no encontrado")
@@ -71,7 +70,7 @@ async def login(user: UsuarioLogin):
         raise HTTPException(status_code=400, detail="Usuario no encontrado")
 
     if bcrypt.checkpw(user.password.encode("utf-8"), usuario["password"].encode("utf-8")):
-        token = generar_token(user.email)  # Generamos el token JWT
+        token = generar_token(user.email)
         return {"mensaje": "Inicio de sesión exitoso", "token": token}
     else:
         raise HTTPException(status_code=400, detail="Contraseña incorrecta")

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const errorMessage = document.getElementById('errorMessage');
 
     if (!token) {
-        window.location.href = '/login'; // 🔥 Si no hay token, redirigir al login
+        window.location.href = '/login';
         return;
     }
 
@@ -21,15 +21,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             throw new Error(data.detail || 'No autorizado');
         }
 
-        // Mostrar datos del usuario en el dashboard
         document.getElementById('username').textContent = data.usuario.nombre;
     } catch (error) {
-        localStorage.removeItem('token'); // 🔥 Si hay error, limpiar el token
+        localStorage.removeItem('token');
         window.location.href = '/login';
     }
 });
 
-// clic en boton de cerrar sesion en el dashboard.html <button id="logoutBtn">Cerrar Sesión</button>
 document.getElementById('logoutBtn').addEventListener('click', () => {
     localStorage.removeItem('token');
     window.location.href = '/public/home.html';

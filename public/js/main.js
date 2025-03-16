@@ -1,6 +1,5 @@
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
-    // Animación suave para los enlaces de navegación
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -13,13 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Activar tooltips de Bootstrap
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
 
-    // Animación para las tarjetas de características
     const observerOptions = {
         threshold: 0.1
     };
@@ -36,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 
-    // Validación del formulario de contacto
     const forms = document.querySelectorAll('.needs-validation');
     Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
@@ -49,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 }); 
 
-// clic en el boton de login
 document.getElementById('loginBtn').addEventListener('click', async (e) => {
     e.preventDefault();
     try {

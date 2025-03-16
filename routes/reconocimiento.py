@@ -4,6 +4,7 @@ import numpy as np
 import os
 from db import get_db_connection
 from routes.auth import verificar_token
+from datetime import datetime
 
 router = APIRouter()
 
@@ -61,7 +62,6 @@ async def registrar_persona(
         file_path = guardar_imagen_temp(imagen)
         codificacion_facial = procesar_imagen(file_path)
 
-        # Guardar en la base de datos
         guardar_persona(nombre, apellido, direccion, fecha_nacimiento, telefono, cedula, codificacion_facial)
 
         return {"mensaje": "Persona registrada exitosamente"}
@@ -113,5 +113,7 @@ async def consultar_rostro(imagen: UploadFile = File(...), usuario_email: str = 
             return {
                 "mensaje": "❌ Persona NO encontrada"
             }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error al consultar la imagen: {str(e)}")
+    except Exception:
+        return {
+            "mensaje": "❌ No se Detecto Rostro en la imagen"
+        }
