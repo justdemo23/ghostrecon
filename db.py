@@ -4,7 +4,7 @@ def get_db_connection():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="A25bd1e23",
+        password="tu_contraseña",
         database="reconocimiento_facial"
     )
 
