@@ -1,0 +1,73 @@
+# Archivos y carpetas de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Entornos virtuales
+venv/
+ENV/
+env/
+.env
+
+# Carpeta de uploads (donde se guardan temporalmente las imágenes)
+uploads/
+
+# Archivos de base de datos
+*.sqlite3
+*.db
+
+# Archivos de configuración IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Archivos de logs
+*.log
+logs/
+
+# Archivos de caché
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+
+# Archivos de configuración local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos de dependencias
+node_modules/
+package-lock.json
+yarn.lock
+
+# Archivos de certificados y claves
+*.pem
+*.key
+*.crt 
